@@ -19,6 +19,7 @@
     "lib-flexible": "^0.3.2",
     "node-sass": "^4.8.3",
     "vue": "^2.5.2",
+    "vue-bus": "^1.1.0",
     "vue-router": "^3.0.1"
   },
   "devDependencies": {

@@ -1,11 +1,11 @@
 <template>
-  <ul class="" >
+  <ul class="">
     <li v-for="(item, index) in nodeData.child" :key="item.uid">
-      <div class="item" @click.stop="bindClickFather(item)">
+      <div class="item" @click.stop ="tapFather(item)">
           <span>{{item.callname}}</span>
           <img :src="item.portrait === ''? '../../../static/images/logo.png':item.portrait" alt="" >
           <span>{{item.uname}}</span>
-          <div class="spouse" v-if="item.spouse.length !==0" @click.stop="bindClickMather(item.spouse)">
+          <div class="spouse" v-if="item.spouse.length !==0" @click.stop="tapMather(item.spouse)">
               <span>{{item.spouse[0].callname}}</span>
               <img :src="item.spouse[0].portrait === ''? '../../../static/images/logo.png':item.portrait" alt="" >
               <span>{{item.spouse[0].uname}}</span>
@@ -32,11 +32,11 @@ export default {
     }
   },
   methods: {
-    bindClickFather (item) {
-      console.log(item)
+    tapFather (item) {
+      this.$bus.emit('tap-father', item)
     },
-    bindClickMather (item) {
-      console.log(item)
+    tapMather (item) {
+      this.$bus.emit('tap-mather', item)
     }
   }
 }

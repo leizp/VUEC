@@ -88,3 +88,38 @@ proxyTable: {
 }
 
 ```
+
+> vue 递归组件中使用事件传递时，需要用bus 插件的支持，不然没有办法传递事件。
+
+``` bash
+$ npm install vue-bus
+
+import Vue from 'vue';
+import VueBus from 'vue-bus';
+
+Vue.use(VueBus);
+
+// 父组件 监听事件和清除监听
+
+created() {
+  this.$bus.on('add-todo', this.addTodo);
+  this.$bus.once('once', () => console.log('这个监听器只会触发一次'));
+},
+beforeDestroy() {
+  this.$bus.off('add-todo', this.addTodo);
+},
+methods: {
+  addTodo(newTodo) {
+    this.todos.push(newTodo);
+  }
+}
+
+// 子组件
+methods: {
+  addTodo() {
+    this.$bus.emit('add-todo', { text: this.newTodoText });
+    this.$bus.emit('once');
+    this.newTodoText = '';
+  }
+}
+```

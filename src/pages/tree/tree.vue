@@ -1,13 +1,12 @@
 <template>
   <div class="tree" v-if="nodeData.child.length !== 0">
-    <treenode :nodeData="nodeData"></treenode>
+    <treenode :nodeData="nodeData" @tapFather="tapFather"></treenode>
   </div>
 </template>
 
 <script>
 import treenode from '../../components/tree-node'
 import test from '../../../static/json/tree.json'
-console.log(test)
 export default {
   name: 'Tree',
   components: {
@@ -16,16 +15,21 @@ export default {
   data () {
     return {
       nodeData: test[0]
-      // nodeData: {
-      //   uname: '主仁興',
-      //   portrait: '../../../static/images/logo.png',
-      //   callname: '我'
-      // }
     }
   },
   created () {
-    console.log(this.nodeData.child.length)
-    // console.log(this.$axios)
+    this.$bus.on('tap-father', this.tapFather)
+  },
+  beforeDestroy () {
+    this.$bus.off('tap-father', this.tapFather)
+  },
+  methods: {
+    tapFather (e) {
+      console.log(e)
+    },
+    fnMather (e) {
+      console.log(e)
+    }
   }
 }
 </script>
