@@ -1,0 +1,6 @@
+$browser-default-font-size: 75px !default; // sass 跟聚设计图定义默认rem更元素，设计图的1/10
+//sass px 转rem函数
+@function px2rem($px){//$px为需要转换的字号
+  @return $px / $browser-default-font-size * 1rem;
+}
+$titleBakColor: red;
