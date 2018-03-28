@@ -8,7 +8,11 @@ export default new Router({
     {
       path: '/',
       name: 'Tree',
-      component: resolve => require(['@/pages/tree/tree.vue'], resolve)
+      component: resolve => require(['@/pages/tree/tree.vue'], resolve) // require 异步加载组件，当页面切换到这个组件的时候使用这个组件
+    }, {
+      path: '/api',
+      name: 'Api',
+      component: resolve => require(['@/pages/api/api.vue'], resolve) // require 异步加载组件，当页面切换到这个组件的时候使用这个组件
     }
   ]
 })
