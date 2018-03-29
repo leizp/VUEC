@@ -1,35 +1,44 @@
 <template>
-  <ul class="">
-    <li v-for="(item, index) in nodeData.child" :key="item.uid">
+  <ul class="vuec-tree">
+    <li v-for="(item, index) in nodeData.child" :key="item.id">
       <div class="item" @click.stop ="tapFather(item)">
-          <span>{{item.callname}}</span>
+          <span>{{item.title}}</span>
           <img :src="item.portrait === ''? '../../../static/images/logo.png':item.portrait" alt="" >
-          <span>{{item.uname}}</span>
+          <span>{{item.name}}</span>
           <div class="spouse" v-if="item.spouse.length !==0" @click.stop="tapMather(item.spouse)">
-              <span>{{item.spouse[0].callname}}</span>
+              <span>{{item.spouse[0].title}}</span>
               <img :src="item.spouse[0].portrait === ''? '../../../static/images/logo.png':item.portrait" alt="" >
-              <span>{{item.spouse[0].uname}}</span>
+              <span>{{item.spouse[0].name}}</span>
           </div>
       </div>
       <em class="lineLeft" v-if="index !== 0" :data="index"></em>
       <em class="lineright" v-if="(index) !== (nodeData.child.length-1)" :data="nodeData.child.length"></em>
       <!-- 递归组件自己 -->
-      <TreeNode v-if="item.child.length !==0" :nodeData="item"></TreeNode>
+      <Tree v-if="item.child.length !==0" :nodeData="item"></Tree>
     </li>
   </ul>
 </template>
 
 <script>
+import defaultProps from './props'
 export default {
-  name: 'TreeNode',
+  name: 'Tree',
   props: {
-    nodeData: {}
+    nodeData: {
+      type: Object,
+      default: function () {
+        return defaultProps[0]
+      }
+    }
   },
   data () {
     return {
       index: 2,
       data: '../../../static/images/logo.png'
     }
+  },
+  created () {
+    // console.log(this.$props.nodeData)
   },
   methods: {
     tapFather (item) {
@@ -44,12 +53,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss">
-@import '../style/config.base.scss';
-$titleBakColor: #b1b1b1;
-$treeNodeBorder: solid 1px seagreen;
-$treeBorderColor: seagreen;
-$itemBackgroundColor: #fff;
-$spouseBorder: solid 1px pink;
+@import './tree.style';
 ul {
     display: flex;
     margin: 10px 30px;

@@ -1,5 +1,9 @@
 ## 底部导航栏组件开发
 
+>示例图
+
+![Image text](./demo.jpg)
+
 > props 说明
 
 ``` bash
@@ -41,4 +45,11 @@ $tabbar-top-border-color: linear-gradient(0deg, transparent 50%, $tabbar-border-
 $tabbar-border-width: 1px; # 边框宽度
 $tabbar-icon-width: 20px; # 图标宽度
 $tabbar-font-size: 14px; # 字体大小
+```
+
+
+>events : on-change(e)
+
+```bash
+@on-change(e) #点击每个菜单栏后出发的事件，返回参数：此菜单信息
 ```

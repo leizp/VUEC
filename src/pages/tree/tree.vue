@@ -1,11 +1,11 @@
 <template>
   <div class="tree" v-if="nodeData.child.length !== 0">
-    <treenode :nodeData="nodeData" @tapFather="tapFather"></treenode>
+    <treenode  @tapFather="tapFather"></treenode>
   </div>
 </template>
 
 <script>
-import treenode from '../../components/tree-node'
+import treenode from '../../components/tree/tree'
 import test from '../../../static/json/tree.json'
 export default {
   name: 'Tree',
@@ -38,7 +38,7 @@ export default {
 <style lang="scss">
 @import '../../style/config.base.scss';
   .tree {
-    width:100000px;
+
     padding: 40px;
     height: 100%;
     overflow: scroll;
