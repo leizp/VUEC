@@ -75,7 +75,7 @@ export default {
       @include before-after-common;
       @include locationEle(0,none,0,0);
       height: $tabbar-border-width;
-      background-color:$tabbar-top-border-color;
+      background-image:$tabbar-top-border-color;
     }
     .vuec-tabar-item {
       height: 100%;
@@ -88,7 +88,7 @@ export default {
         height:100%;
         @include locationEle(0,none,0,none);
         width: $tabbar-border-width;
-        background-color: $tabbar-border-color;
+        background-image: $tabbar-border;
       }
       .tabbar-icon {
         width: $tabbar-icon-width;
