@@ -118,7 +118,7 @@ ul {
       background: $treeBorderColor;
       left: px2rem(58px);
       z-index: -1;
-      bottom:px2rem(-34px);
+      bottom:px2rem(-30px);
     }
     .item::before {
       content: ' ';
@@ -129,7 +129,7 @@ ul {
       background: $treeBorderColor;
       left: px2rem(58px);
       z-index: -1;
-      top: px2rem(-34px);
+      top: px2rem(-36px);
     }
     .lineLeft,.lineright {
       display: block;

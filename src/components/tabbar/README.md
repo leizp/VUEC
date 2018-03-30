@@ -6,6 +6,12 @@
 
 > props 说明
 
+| name         | type   | value    |  explain    |
+| --------     | -----: | :----:   | :----:      |
+| tabbarConfig | Array  | 下面例子  | 请看下面注释  |
+
+
+
 ``` bash
 tabbarConfig: {
   type: Array,
@@ -38,7 +44,7 @@ tabbarConfig: {
 ```bash
 @import '../../style/config.base.scss'; # 公共样式引入
 $position-type: absolute; # 定位类型，#app定义了width： 100%，height: 100%,时用的，如果没有定义，请自己定义为position：fixed；
-$tabbar-height: 100px; # tarbar 高度定义
+$tabbar-height: 100px; # tabbar 高度定义
 $tabbar-border-color: #e0e0e0;
 $tabbar-border:linear-gradient(90deg, transparent 50%, $tabbar-border-color 50%); # 左右边框0.5px
 $tabbar-top-border-color: linear-gradient(0deg, transparent 50%, $tabbar-border-color 50%); # 上下边框0.5px;

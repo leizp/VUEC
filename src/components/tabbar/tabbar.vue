@@ -59,6 +59,7 @@ export default {
 .vuec-tabbar {
   position: $position-type;
   @include locationEle(none,0,0,0);
+  background: #fff;
   width:100%;
   box-sizing: border-box;
   height: px2rem($tabbar-height);
@@ -72,10 +73,7 @@ export default {
     width: 100%;
     position: relative;
     &:before {
-      @include before-after-common;
-      @include locationEle(0,none,0,0);
-      height: $tabbar-border-width;
-      background-image:$tabbar-top-border-color;
+      @include border-top-point5-line ($border-color);
     }
     .vuec-tabar-item {
       height: 100%;
@@ -84,11 +82,7 @@ export default {
       text-align: center;
       position: relative;
       &:after {
-        @include before-after-common;
-        height:100%;
-        @include locationEle(0,none,0,none);
-        width: $tabbar-border-width;
-        background-image: $tabbar-border;
+        @include border-left-point5-line;
       }
       .tabbar-icon {
         width: $tabbar-icon-width;
