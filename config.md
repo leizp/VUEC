@@ -50,6 +50,13 @@ import 'lib-flexible/flexible.js'
 </style>
 ```
 
+>点击延迟
+
+```bash
+npm install fastclick --save
+```
+
+
 >vue配置axios发送 ajax请求
 
 ``` bash

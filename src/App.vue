@@ -1,17 +1,20 @@
 <template>
   <div id="app">
+    <c-header></c-header>
+    <router-view />
     <tarbar @on-change ="tabChange" :tabbarConfig="tabbarConfig">
     </tarbar>
-    <router-view />
   </div>
 </template>
 
 <script>
 import Tarbar from './components/tabbar/tabbar'
+import CHeader from './components/header/header'
 export default {
   name: 'App',
   components: {
-    Tarbar
+    Tarbar,
+    CHeader
   },
   data () {
     return {
@@ -19,7 +22,7 @@ export default {
         title: '首页',
         default: true,
         link: '',
-        name: 'Demo',
+        path: '/',
         index: 0,
         query: {},
         enterSrc: '../../../static/images/tabbar/home-enter.png',
@@ -27,14 +30,25 @@ export default {
         enterColor: '#1296db',
         leaveColor: '#707070'
       }, {
-        title: '详情页',
+        title: 'DEMO',
         default: false,
         link: '',
         index: 1,
-        name: 'Tree',
+        path: '/demo',
         query: {},
-        enterSrc: '../../../static/images/tabbar/home-enter.png',
-        leaveSrc: '../../../static/images/tabbar/home-leave.png',
+        enterSrc: '../../../static/images/tabbar/demo-enter.svg',
+        leaveSrc: '../../../static/images/tabbar/demo-leave.svg',
+        enterColor: '#1296db',
+        leaveColor: '#707070'
+      }, {
+        title: '关于我们',
+        default: false,
+        link: '',
+        index: 1,
+        path: '/aboutus',
+        query: {},
+        enterSrc: '../../../static/images/tabbar/aboutus-enter.png',
+        leaveSrc: '../../../static/images/tabbar/aboutus-leave.png',
         enterColor: '#1296db',
         leaveColor: '#707070'
       }]
@@ -42,7 +56,7 @@ export default {
   },
   methods: {
     tabChange (e) {
-      console.log(e)
+      // console.log(e)
     }
   }
 }
@@ -61,5 +75,6 @@ html,body,#app {
 }
 #app {
   padding-bottom: px2rem(100px);
+  padding-top: px2rem(100px);
 }
 </style>

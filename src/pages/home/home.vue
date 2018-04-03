@@ -1,13 +1,10 @@
 <template>
-  <div class="demo">
-    <gird >
-        <girditem v-for="item in list" :key="item.index" :max="4" :gridItemData="item"></girditem>
-    </gird>
+  <div class="home">
+    首页
   </div>
 </template>
 
 <script>
-import config from './demo.config'
 import gird from '../../components/grid/grid'
 import girditem from '../../components/grid/grid-item'
 export default {
@@ -18,7 +15,6 @@ export default {
   },
   data () {
     return {
-      list: config
     }
   },
   created () {
@@ -26,9 +22,6 @@ export default {
   beforeDestroy () {
   },
   methods: {
-    tapGirdItem (e) {
-      console.log(e)
-    }
   }
 }
 </script>
@@ -37,7 +30,7 @@ export default {
 <style lang="scss">
   @import '../../style/config.base.scss';
   $demo-background-color: #fff;
-  .demo {
+  .home {
     width: 100%;
     height: 100%;
     background: $demo-background-color;

@@ -10,8 +10,6 @@
 | --------     | -----: | :----:   | :----:      |
 | tabbarConfig | Array  | 下面例子  | 请看下面注释  |
 
-
-
 ``` bash
 tabbarConfig: {
   type: Array,

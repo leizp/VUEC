@@ -1,12 +1,12 @@
 <template>
-  <div class="tree" v-if="nodeData.child.length !== 0">
-    <treenode  @tapFather="tapFather"></treenode>
+  <div class="tree" >
+    <treenode  @on-click="tapTreeItem"></treenode>
   </div>
 </template>
 
 <script>
 import treenode from '../../components/tree/tree'
-import test from '../../../static/json/tree.json'
+
 export default {
   name: 'Tree',
   components: {
@@ -14,20 +14,16 @@ export default {
   },
   data () {
     return {
-      nodeData: test[0]
     }
   },
   created () {
-    this.$bus.on('tap-father', this.tapFather)
+    this.$bus.on('on-click', this.tapTreeItem)
   },
   beforeDestroy () {
-    this.$bus.off('tap-father', this.tapFather)
+    this.$bus.off('on-click', this.tapTreeItem)
   },
   methods: {
-    tapFather (e) {
-      console.log(e)
-    },
-    fnMather (e) {
+    tapTreeItem (e) {
       console.log(e)
     }
   }
@@ -38,11 +34,9 @@ export default {
 <style lang="scss">
 @import '../../style/config.base.scss';
   .tree {
-
     padding: 40px;
     height: 100%;
     overflow: scroll;
-    border: solid 1px red;
     box-sizing: border-box;
     zoom: 1;
   }

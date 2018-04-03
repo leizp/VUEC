@@ -1,24 +1,20 @@
 <template>
-  <div class="demo">
-    <gird >
-        <girditem v-for="item in list" :key="item.index" :max="4" :gridItemData="item"></girditem>
-    </gird>
+  <div class="aboutus">
+      详情页
   </div>
 </template>
 
 <script>
-import config from './demo.config'
 import gird from '../../components/grid/grid'
 import girditem from '../../components/grid/grid-item'
 export default {
-  name: 'Home',
+  name: 'Detail',
   components: {
     gird,
     girditem
   },
   data () {
     return {
-      list: config
     }
   },
   created () {
@@ -37,7 +33,7 @@ export default {
 <style lang="scss">
   @import '../../style/config.base.scss';
   $demo-background-color: #fff;
-  .demo {
+  .aboutus {
     width: 100%;
     height: 100%;
     background: $demo-background-color;

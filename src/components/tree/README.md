@@ -68,18 +68,61 @@
 
 >scss 变量说明
 
-```bash
-$titleBakColor: #b1b1b1; # 标题背景色
-$treeNodeBorder: solid 1px seagreen; # 父元素边框
-$treeBorderColor: seagreen; # 连线边框
-$itemBackgroundColor: #fff; # 节点基础背景色
-$spouseBorder: solid 1px pink; # 母系边框背景色
-
-```
+| name          | default                  |   explain      |
+| --------      |  -----:                  | :----:        |
+|$titleBakColor  | #b1b1b1 | 标题背景色 |
+|$treeBorderColor  | seagreen | 连线边框 |
+|$itemBackgroundColor  | #fff | 节点基础背景色 |
 
 >events: tap-father(e),tap-mather(e)
 
+| name         | params | explain     |
+| --------     | -----: | :----:      |
+| on-click    | value  |   点击节点触发的事件，返回节点信息（value）|
+
+>demo code
 ```bash
-  @tap-father(e) #点击男性节点出发事件，参数返回此节点信息
-  @tap-mather(e) #点击女性节点出发事件，参数返回此节点信息
+<template>
+  <div class="tree" >
+    <treenode  @on-click="tapTreeItem"></treenode>
+  </div>
+</template>
+
+<script>
+import treenode from '../../components/tree/tree'
+
+export default {
+  name: 'Tree',
+  components: {
+    treenode: treenode
+  },
+  data () {
+    return {
+    }
+  },
+  created () {
+    this.$bus.on('on-click', this.tapTreeItem)
+  },
+  beforeDestroy () {
+    this.$bus.off('on-click', this.tapTreeItem)
+  },
+  methods: {
+    tapTreeItem (e) {
+      console.log(e)
+    }
+  }
+}
+</script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style lang="scss">
+@import '../../style/config.base.scss';
+  .tree {
+    padding: 40px;
+    height: 100%;
+    overflow: scroll;
+    box-sizing: border-box;
+    zoom: 1;
+  }
+</style>
 ```

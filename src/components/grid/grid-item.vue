@@ -1,5 +1,5 @@
 <template>
-  <a :to="gridItemData.link" class="vuec-grid-item" :style="{width: `${width}%`}">
+  <a class="vuec-grid-item" :style="{width: `${100/max}%`}" @click.stop="fnClick(gridItemData.link)">
     <img :src="gridItemData.src" alt="Image" srcset="">
     <span>{{gridItemData.title}}</span>
     <slot></slot>
@@ -21,9 +21,9 @@ export default {
         }
       }
     },
-    width: {
+    max: {
       type: Number,
-      default: 100
+      default: 1
     }
   },
   data () {
@@ -33,6 +33,17 @@ export default {
   created () {
   },
   methods: {
+    fnClick (e) {
+      this.tabitem(this.$props.gridItemData)
+      if (e !== '') {
+        this.$router.push({
+          path: e
+        })
+      }
+    },
+    tabitem (value) {
+      this.$emit('on-click', value)
+    }
   }
 }
 </script>

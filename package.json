@@ -16,8 +16,11 @@
   "dependencies": {
     "axios": "^0.18.0",
     "es6-promise": "^4.2.4",
+    "fastclick": "^1.0.6",
+    "font-awesome-sass": "^4.7.0",
     "lib-flexible": "^0.3.2",
     "node-sass": "^4.8.3",
+    "vconsole": "^3.1.0",
     "vue": "^2.5.2",
     "vue-bus": "^1.1.0",
     "vue-router": "^3.0.1"

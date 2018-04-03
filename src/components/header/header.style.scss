@@ -1,0 +1,6 @@
+@import '../../style/config.base.scss'; // 公共样式引入
+$position-type: absolute; // 定位类型，#app定义了width： 100%，height: 100%,时用的，如果没有定义，请自己定义为position：fixed；
+$header-background-color: #277ba6;
+$header-height: px2rem(100px);
+$header-font-color: #fff;
+$header-font-size: px2rem(40px);

@@ -39,7 +39,7 @@ export default {
         }
         this.$props.tabbarConfig[index].default = true
         this.$router.push({
-          name: vm.$props.tabbarConfig[index].name,
+          path: vm.$props.tabbarConfig[index].path,
           query: vm.$props.tabbarConfig[index].query
         })
       }

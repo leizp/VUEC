@@ -9,10 +9,6 @@
 export default {
   name: 'Grid',
   props: {
-    maxnum: {
-      type: Number,
-      default: 4
-    }
   },
   data () {
     return {
