@@ -1,5 +1,4 @@
 
-// @import './font/scss/font-awesome';
 // 公共样式，sass变量
 $browser-default-font-size: 75px !default; // sass 跟聚设计图定义默认rem更元素，设计图的1/10
 $border-color: #d9d9d9;
@@ -29,7 +28,7 @@ $border-1px-left: linear-gradient(270deg, transparent 50%, $border-color 50%); /
   bottom: $bottom;
 }
 
-// 上边框0.5px实现方法
+// 伪元素上边框0.5px实现方法
 @mixin border-top-point5-line ($border-color: #d9d9d9){
   @include before-after-common;
   @include locationEle(0, none, 0, 0);
@@ -41,7 +40,7 @@ $border-1px-left: linear-gradient(270deg, transparent 50%, $border-color 50%); /
   transform: scaleY(0.5);
 }
 
-// 下边框0.5px实现方法
+// 伪元素下边框0.5px实现方法
 @mixin border-bottom-point5-line ($border-color: #d9d9d9){
   @include before-after-common;
   @include locationEle(none, 0, 0, 0);
@@ -52,7 +51,7 @@ $border-1px-left: linear-gradient(270deg, transparent 50%, $border-color 50%); /
   transform: scaleY(0.5);
 }
 
-// 左边2框0.5px实现方法
+// 伪元素左边2框0.5px实现方法
 @mixin border-left-point5-line ($border-color: #d9d9d9){
   @include before-after-common;
   @include locationEle(0, 0, 0, none);
@@ -64,7 +63,7 @@ $border-1px-left: linear-gradient(270deg, transparent 50%, $border-color 50%); /
   transform: scaleX(0.5);
 }
 
-// 右2框0.5px实现方法
+// 伪元素右框0.5px实现方法
 @mixin border-right-point5-line ($border-color: #d9d9d9){
   @include before-after-common;
   @include locationEle(0, 0, none, 0);

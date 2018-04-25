@@ -6,7 +6,7 @@ export default [{
 }, {
   title: 'Gird',
   src: `../../static/images/gird/gird.png`,
-  link: ``,
+  link: `/girddemo`,
   index: 2
 }, {
   title: 'tabbar',
@@ -21,6 +21,6 @@ export default [{
 }, {
   title: '开发中',
   src: `../../static/images/develop.png`,
-  link: `/api`,
+  link: `/other`,
   index: 5
 }]

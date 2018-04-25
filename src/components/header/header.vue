@@ -1,16 +1,19 @@
 <template>
-  <div class="vuec-header">
-    <solt name="left">
+  <div class="vuec-cheader">
+    <slot name="vuec-header-left">
       <div class="left">
-        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        <img :src="leftIconSrc" alt="back" srcset="">
+        <span @click="goBack">返回</span>
       </div>
-    </solt>
-    <solt name="center">
-      <div class="center">demo</div>
-    </solt>
-    <solt name="right">
-      <div class="right">demo</div>
-    </solt>
+    </slot>
+    <slot name="vuec-header-center">
+      <div class="center">{{headerTitle}}</div>
+    </slot>
+    <slot name="vuec-header-right">
+      <div class="right">
+        <img src="../../../static/images/header/right-order-icon.svg" alt="" srcset="">
+      </div>
+    </slot>
   </div>
 </template>
 
@@ -21,11 +24,16 @@ export default {
   props: prpos,
   data () {
     return {
+      leftIconSrc: this.$props.leftIcon.leftEnterIconSrc
     }
   },
   created () {
+    // console.log(this.$props)
   },
   methods: {
+    goBack () {
+      this.$router ? this.$router.back() : window.history.back()
+    }
   }
 }
 </script>
@@ -33,7 +41,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss">
 @import './header.style';
-.vuec-header {
+.vuec-cheader {
   position: $position-type;
   @include locationEle(0,none,0,0);
   background:$header-background-color;
@@ -47,11 +55,18 @@ export default {
     width: 20%;
     font-size: 14px;
     box-sizing: border-box;
-    // background-image: $left-icon-src;
-    // background: url($left-icon-src) no-repeat;
-    // background-position: -24px center;
-    // background-size: 100% 30px;
     float: left;
+    padding: px2rem(20px) px2rem(10px);
+    img {
+      width: 25px;
+      height: 100%;
+      float: left;
+    }
+    span {
+      float: left;
+      font-size: 16px;
+      line-height: ($header-height - px2rem(40px));
+    }
   }
   .center {
     height: 100%;
@@ -67,7 +82,11 @@ export default {
     float: left;
     width: 20%;
     text-align: center;
+    padding: px2rem(20px) px2rem(10px);
     line-height: $header-height;
+    img {
+      width: px2rem(60px);
+    }
   }
 }
 

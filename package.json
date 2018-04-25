@@ -19,11 +19,11 @@
     "fastclick": "^1.0.6",
     "font-awesome-sass": "^4.7.0",
     "lib-flexible": "^0.3.2",
-    "node-sass": "^4.8.3",
     "vconsole": "^3.1.0",
     "vue": "^2.5.2",
     "vue-bus": "^1.1.0",
-    "vue-router": "^3.0.1"
+    "vue-router": "^3.0.1",
+    "vuex": "^3.0.1"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
@@ -65,6 +65,7 @@
     "nightwatch": "^0.9.12",
     "node-less": "^1.0.0",
     "node-notifier": "^5.1.2",
+    "node-sass": "^4.8.3",
     "optimize-css-assets-webpack-plugin": "^3.2.0",
     "ora": "^1.2.0",
     "portfinder": "^1.0.13",

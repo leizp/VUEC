@@ -18,6 +18,7 @@
 
 <script>
 import prpos from './props'
+console.log(prpos)
 export default {
   name: 'Tabbar',
   props: prpos,

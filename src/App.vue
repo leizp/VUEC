@@ -1,8 +1,10 @@
 <template>
-  <div id="app">
-    <c-header></c-header>
-    <router-view />
-    <tarbar @on-change ="tabChange" :tabbarConfig="tabbarConfig">
+  <div id="app" :class="{'noPadBottom': !isTabPage, 'hasPadBotom': isTabPage}">
+    <c-header :headerTitle="documentTitle"></c-header>
+    <keep-alive>
+      <router-view></router-view>
+    </keep-alive>
+    <tarbar @on-change ="tabChange" :tabbarConfig="tabbarConfig" v-if="isTabPage">
     </tarbar>
   </div>
 </template>
@@ -10,6 +12,7 @@
 <script>
 import Tarbar from './components/tabbar/tabbar'
 import CHeader from './components/header/header'
+import { mapState } from 'vuex'
 export default {
   name: 'App',
   components: {
@@ -51,12 +54,20 @@ export default {
         leaveSrc: '../../../static/images/tabbar/aboutus-leave.png',
         enterColor: '#1296db',
         leaveColor: '#707070'
-      }]
+      }],
+      isPadBottom: '0 !important'
     }
+  },
+  computed: {
+    ...mapState({
+      documentTitle: state => state.headerTitle,
+      isTabPage: state => state.isTabPage
+    })
+  },
+  created () {
   },
   methods: {
     tabChange (e) {
-      // console.log(e)
     }
   }
 }
@@ -74,7 +85,12 @@ html,body,#app {
   box-sizing: border-box;
 }
 #app {
-  padding-bottom: px2rem(100px);
   padding-top: px2rem(100px);
+}
+.noPadBottom {
+  padding-bottom: none !important;
+}
+.hasPadBotom {
+  padding-bottom: px2rem(100px);
 }
 </style>

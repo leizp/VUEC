@@ -6,7 +6,6 @@
 
 <script>
 import treenode from '../../components/tree/tree'
-
 export default {
   name: 'Tree',
   components: {

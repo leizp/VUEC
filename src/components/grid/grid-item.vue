@@ -1,7 +1,7 @@
 <template>
   <a class="vuec-grid-item" :style="{width: `${100/max}%`}" @click.stop="fnClick(gridItemData.link)">
-    <img :src="gridItemData.src" alt="Image" srcset="">
-    <span>{{gridItemData.title}}</span>
+    <img :src="gridItemData.src" alt="Image" srcset="" v-show="gridItemData.src">
+    <span v-show="gridItemData.title">{{gridItemData.title}}</span>
     <slot></slot>
   </a>
 </template>
@@ -14,8 +14,8 @@ export default {
       type: Object,
       default: function () {
         return {
-          title: '测试',
-          src: `../../static/images/logo.png`,
+          title: '',
+          src: ``,
           link: ``,
           index: 0
         }
