@@ -26,7 +26,7 @@
 | name               | default                  |   explain      |
 | --------           |  -----:                  | :----:        |
 |$grid-item-padding  | px2rem(10px) px2rem(5px) | 九宫格上下左右padding值 |
-|$font-siz           | px2rem(14px)            | 标题字体大小  |
+|$font-size           | px2rem(14px)            | 标题字体大小  |
 |$grid-item-hover-background-color|  #f9f0a4  | 点击时的背景色  |
 |$gird-item-img-width| px2rem(60px)  | 图标宽度  |
 

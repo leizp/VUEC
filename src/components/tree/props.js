@@ -21,15 +21,51 @@ export default [
                 name: '孙子', // 姓名
                 portrait: '', // 头像
                 title: 3,
-                child: [],
+                child: [
+                  {
+                    id: 4,
+                    sex: 1, // 性别
+                    name: '孙子1', // 姓名
+                    portrait: '', // 头像
+                    title: 3,
+                    child: [],
+                    spouse: []
+                  }, {
+                    id: 5,
+                    sex: 2, // 性别
+                    name: '孙女1', // 姓名
+                    portrait: '', // 头像
+                    title: 3,
+                    child: [],
+                    spouse: []
+                  }
+                ],
                 spouse: []
               }, {
                 id: 5,
                 sex: 2, // 性别
-                name: '孙女', // 姓名
+                name: '孙女2', // 姓名
                 portrait: '', // 头像
                 title: 3,
-                child: [],
+                child: [
+                  {
+                    id: 4,
+                    sex: 1, // 性别
+                    name: '孙子3', // 姓名
+                    portrait: '', // 头像
+                    title: 3,
+                    child: [],
+                    spouse: []
+                  }, {
+                    id: 5,
+                    sex: 2, // 性别
+                    name: '孙女', // 姓名
+                    portrait: '', // 头像
+                    title: 3,
+                    child: [],
+                    spouse: []
+                  }
+                ],
                 spouse: []
               }
             ],

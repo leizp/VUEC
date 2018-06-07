@@ -1,18 +1,18 @@
 <template>
   <ul class="vuec-tree">
     <li v-for="(item, index) in nodeData.child" :key="item.id">
-      <div class="item" @click.stop ="tapFather(item)" :style="{border: `${item.sex === 1 ? boyBorder : girBorder}` }">
+      <div class="item" @click.stop ="tapFather(item)" :style="{border: `${item.sex === 1 ? boyBorder : girlBorder}` }">
           <span>{{item.title}}</span>
           <img :src="item.portrait === ''? ( item.sex === 1 ? '../../../static/images/tree/boy.png' : '../../../static/images/tree/girl.png'):item.portrait" alt="" >
           <span>{{item.name}}</span>
           <div class="spouse" v-if="item.spouse.length !==0" @click.stop="tapFather(item.spouse)">
               <span>{{item.spouse[0].title}}</span>
-              <img :src="item.spouse[0].portrait === ''? '../../../static/images/tree/girl.png':item.portrait" alt="" >
+              <img :src="item.spouse[0].portrait === ''? '../../../static/images/tree/girl.png':item.portrait" alt="你猜" title="测试">
               <span>{{item.spouse[0].name}}</span>
           </div>
       </div>
       <em class="lineLeft" v-if="index !== 0" :data="index"></em>
-      <em class="lineright" v-if="(index) !== (nodeData.child.length-1)" :data="nodeData.child.length"></em>
+      <em class="lineRight" v-if="(index) !== (nodeData.child.length-1)" :data="nodeData.child.length"></em>
       <!-- 递归组件自己 -->
       <Tree v-if="item.child.length !==0" :nodeData="item"></Tree>
     </li>
@@ -36,7 +36,7 @@ export default {
       index: 2,
       data: '../../../static/images/logo.png',
       boyBorder: 'solid 1px #1296db',
-      girBorder: 'solid 1px pink'
+      girlBorder: 'solid 1px pink'
     }
   },
   created () {
@@ -130,7 +130,7 @@ ul {
       z-index: -1;
       top: px2rem(-36px);
     }
-    .lineLeft,.lineright {
+    .lineLeft,.lineRight {
       display: block;
       position: absolute;
       height: 3px;
@@ -140,7 +140,7 @@ ul {
       top: px2rem(-34px);
       left: px2rem(-30px);
     }
-    .lineright {
+    .lineRight {
       right: px2rem(30px);
       left: 50%;
       background: $treeBorderColor;
