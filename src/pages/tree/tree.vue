@@ -1,11 +1,12 @@
 <template>
-  <div class="tree" >
+  <div class="tree" :style="{minWidth: width}" ref="tree">
     <treenode  @on-click="tapTreeItem"></treenode>
   </div>
 </template>
 
 <script>
 import treenode from '../../components/tree/tree'
+import { mapState } from 'vuex'
 export default {
   name: 'Tree',
   components: {
@@ -13,10 +14,17 @@ export default {
   },
   data () {
     return {
+      width: '375px'
     }
   },
+  computed: mapState({ // 测试vuex 项目架构数据
+    test: state => state.treeModule.test
+  }),
   created () {
     this.$bus.on('on-click', this.tapTreeItem)
+  },
+  mounted () {
+    this.width = this.$refs.tree.children[0].firstChild.clientWidth + 20 + 'px'
   },
   beforeDestroy () {
     this.$bus.off('on-click', this.tapTreeItem)

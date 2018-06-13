@@ -1,5 +1,7 @@
 import vue from 'vue'
 import Vuex from 'vuex'
+import { rooteMutations } from './mutations'
+import { treeModule } from './modules/index'
 
 vue.use(Vuex)
 
@@ -10,12 +12,8 @@ const state = {
 
 export default new Vuex.Store({
   state,
-  mutations: {
-    changeDocumentTitle (state, payload) {
-      state.headerTitle = payload.title
-    },
-    hideTabPage (state, payload) {
-      state.isTabPage = payload.isTabPage
-    }
+  mutations: rooteMutations,
+  modules: {
+    treeModule
   }
 })

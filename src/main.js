@@ -7,6 +7,10 @@ import 'lib-flexible/flexible.js' // 引入flexible.js
 import VueBus from 'vue-bus' // 监听事件传递，主要用于递归组件
 import axios from 'axios'
 import store from './store/index'
+import {
+  SYNC_SET_META_TITLE,
+  SYNC_HIDE_TAB_PAGE
+} from './store/types/index'
 // import VConsole from '../node_modules/vconsole/dist/vconsole.min' // 手机端测试用
 // let vconsole = new VConsole() // 手机端测试用
 const FastClick = require('fastclick')
@@ -17,18 +21,18 @@ Vue.prototype.$axios = axios
 
 router.afterEach(function (to) {
   store.commit({
-    type: 'changeDocumentTitle',
+    type: SYNC_SET_META_TITLE,
     title: to.meta.title
   })
 
   if (['/', '/aboutus', '/demo'].includes(to.path)) {
     store.commit({
-      type: 'hideTabPage',
+      type: SYNC_HIDE_TAB_PAGE,
       isTabPage: true
     })
   } else {
     store.commit({
-      type: 'hideTabPage',
+      type: SYNC_HIDE_TAB_PAGE,
       isTabPage: false
     })
   }
