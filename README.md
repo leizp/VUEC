@@ -1,7 +1,7 @@
 # 本基础组件仅用于自己开发使用
 
 > A Vue.js project
-# vue cil 配置
+## vue cil 配置
 
 > less 和 sass 配置
 
@@ -25,7 +25,7 @@ npm install less-loader --save-dev
 
 npm i lib-flexible --save
 
-// 2、在项目入口文件main.js中引入lib-flexibl
+// 2、在项目入口文件main.js中引入lib-flexible
 
 
 import 'lib-flexible/flexible.js'
