@@ -1,18 +1,23 @@
 <template>
-  <div class="home">
+  <div class="dragPage">
+    <drag></drag>
   </div>
 </template>
 
 <script>
+import Drag from '../../components/drag/drag'
 export default {
-  name: 'Home',
+  name: 'DragPage',
   components: {
+    Drag
   },
   data () {
     return {
     }
   },
   created () {
+  },
+  mounted () {
   },
   beforeDestroy () {
   },
@@ -23,13 +28,11 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss">
-  @import '../../style/config.base.scss';
-  $demo-background-color: #fff;
-  .home {
+@import '../../style/config.base.scss';
+  .dragPage {
     width: 100%;
     height: 100%;
-    background: $demo-background-color;
-    // border: solid 1px red;
+    overflow: hidden;
     box-sizing: border-box;
   }
 </style>

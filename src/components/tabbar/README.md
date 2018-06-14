@@ -1,6 +1,6 @@
 ## 底部导航栏组件开发
 
->示例图
+>  示例图
 
 ![Image text](./demo.jpg)
 
@@ -29,7 +29,7 @@ tabbarConfig: {
 }
 ```
 
-> slot 变量配置 暂时slot变量只支持tabbarItem0/tabbarItem1，如:
+> slot变量配置 暂时slot变量只支持tabbarItem0/tabbarItem1，如:
 
 ```bash
 <tarbar @on-change ="tabChange">
@@ -37,7 +37,7 @@ tabbarConfig: {
 </tarbar>
 ```
 
->sass 变量说明
+> sass 变量说明
 
 ```bash
 @import '../../style/config.base.scss'; # 公共样式引入
@@ -46,7 +46,7 @@ $tabbar-height: 100px; # tabbar 高度定义
 $tabbar-border-color: #e0e0e0;
 $tabbar-border:linear-gradient(90deg, transparent 50%, $tabbar-border-color 50%); # 左右边框0.5px
 $tabbar-top-border-color: linear-gradient(0deg, transparent 50%, $tabbar-border-color 50%); # 上下边框0.5px;
-$tabbar-border-width: 1px; # 边框宽度
+$tabbar-border-width: 1px; #边框宽度
 $tabbar-icon-width: 20px; # 图标宽度
 $tabbar-font-size: 14px; # 字体大小
 ```

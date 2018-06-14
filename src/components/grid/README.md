@@ -1,6 +1,6 @@
 ## 九宫格组件
 
->props 说明
+> props 说明
 
 | name         | type   | value    |  explain    |
 | --------     | -----: | :----:   | :----:      |
@@ -15,13 +15,13 @@
 | link         | String | /path | 需要跳转页面的路径  |
 | src          | String | ../images/  |   图标  |
 
->events
+> events
 
 | name         | params | explain     |
 | --------     | -----: | :----:      |
 | 'on-click    | value  |   点击事件   |
 
->sass变量说明
+> sass变量说明
 
 | name               | default                  |   explain      |
 | --------           |  -----:                  | :----:        |
@@ -30,7 +30,7 @@
 |$grid-item-hover-background-color|  #f9f0a4  | 点击时的背景色  |
 |$gird-item-img-width| px2rem(60px)  | 图标宽度  |
 
->code
+> code
 
 ```bash
     <gird >

@@ -16,11 +16,16 @@ export default [{
 }, {
   title: 'header',
   src: `../../static/images/header/titlebar_icon_back.svg`,
-  link: ``,
+  link: `/header`,
   index: 4
+}, {
+  title: 'Drag',
+  src: `../../static/images/drag/drag.png`,
+  link: `/drag`,
+  index: 5
 }, {
   title: '开发中',
   src: `../../static/images/develop.png`,
   link: `/other`,
-  index: 5
+  index: 6
 }]

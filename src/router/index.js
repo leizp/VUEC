@@ -13,13 +13,6 @@ export default new Router({
       },
       component: resolve => require(['@/pages/home/home.vue'], resolve) // require 异步加载组件，当页面切换到这个组件的时候使用这个组件
     }, {
-      path: '/other',
-      name: 'Other',
-      meta: {
-        title: '杂项测试'
-      },
-      component: resolve => require(['@/pages/other/other.vue'], resolve)
-    }, {
       path: '/tree',
       name: 'Tree',
       meta: {
@@ -54,6 +47,27 @@ export default new Router({
         title: 'TabBar'
       },
       component: resolve => require(['@/pages/tabbar/tabbar.vue'], resolve)
+    }, {
+      path: '/header',
+      name: 'Header',
+      meta: {
+        title: 'Header'
+      },
+      component: resolve => require(['@/pages/header/header.vue'], resolve)
+    }, {
+      path: '/drag',
+      name: 'DragPage',
+      meta: {
+        title: '拖拽'
+      },
+      component: resolve => require(['@/pages/drag/drag.vue'], resolve)
+    }, {
+      path: '/other',
+      name: 'Other',
+      meta: {
+        title: '杂项测试'
+      },
+      component: resolve => require(['@/pages/other/other.vue'], resolve)
     }
   ]
 })

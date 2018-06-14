@@ -38,21 +38,10 @@ export default {
     }
   },
   created () {
-    // this.getLoaclList()
   },
   beforeDestroy () {
   },
   methods: {
-    async getLoaclList () {
-      let that = this
-      await that.$axios.get('../../../static/json/test.json')
-        .then(function (res) {
-          that.shopList = res.data
-        })
-        .catch(function (err) {
-          console.error(err)
-        })
-    }
   },
   computed: {
   }
@@ -76,8 +65,8 @@ export default {
       width: 100%;
       height: px2rem(100px);
       position: relative;
-      &::after{
-        @include border-bottom-point5-line ($border-color: #d9d9d9)
+      &:after{
+        @include border-bottom-point5-line ($border-color: #d9d9d9);
       }
     }
   }
