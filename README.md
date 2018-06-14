@@ -18,7 +18,7 @@ npm install less-loader --save-dev
 // 安装成功以后使用：<style lang="sass/less"></style>即可
 ```
 
->移动端flexible配置
+> 移动端flexible配置
 
 ``` bash
 // 1、安装flexible
@@ -60,7 +60,7 @@ npm install fastclick --save
 ```
 
 
->vue配置axios发送 ajax请求
+> vue配置axios发送 ajax请求
 
 ``` bash
 //1、安装
@@ -83,7 +83,7 @@ require('es6-promise').polyfill()
 
 ```
 
->vue 开发环境时配置axios跨域,特别说明，仅用于开发环境的跨域，在config/index.js 下配置，要想生产环境也要跨域，建议使用jsonp 或者前后台一起配置
+> vue 开发环境时配置axios跨域,特别说明，仅用于开发环境的跨域，在config/index.js 下配置，要想生产环境也要跨域，建议使用jsonp 或者前后台一起配置
 
 ``` bash
 
