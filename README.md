@@ -2,6 +2,9 @@
 
 > A Vue.js project
 ## vue cil 配置
+> LOOK
+
+![Image text](./static/demo.png)
 
 > less 和 sass 配置
 
