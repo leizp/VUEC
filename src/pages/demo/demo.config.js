@@ -11,7 +11,7 @@ export default [{
 }, {
   title: 'tabbar',
   src: `../../static/images/tabbar/tabs.png`,
-  link: ``,
+  link: `/tabbar`,
   index: 3
 }, {
   title: 'header',

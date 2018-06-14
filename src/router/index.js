@@ -47,6 +47,13 @@ export default new Router({
         title: '九宫格'
       },
       component: resolve => require(['@/pages/girddemo/girddemo.vue'], resolve)
+    }, {
+      path: '/tabbar',
+      name: 'TabBar',
+      meta: {
+        title: 'TabBar'
+      },
+      component: resolve => require(['@/pages/tabbar/tabbar.vue'], resolve)
     }
   ]
 })

@@ -65,7 +65,6 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss">
   @import '../../style/config.base.scss';
-  $demo-background-color: #fff;
   .GirdDemo {
     width: 100%;
     height: 100%;

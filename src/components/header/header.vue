@@ -1,9 +1,9 @@
 <template>
   <div class="vuec-cheader">
     <slot name="vuec-header-left">
-      <div class="left">
+      <div class="left"  @click="goBack">
         <img :src="leftIconSrc" alt="back" srcset="">
-        <span @click="goBack">返回</span>
+        <span>返回</span>
       </div>
     </slot>
     <slot name="vuec-header-center">
