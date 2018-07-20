@@ -14,8 +14,8 @@ export default {
   data () {
     return {
       moveObj: {
-        left: 0,
-        top: 0
+        left: '0px',
+        top: '0px'
       },
       dragInfo: {
         width: '',
@@ -37,9 +37,23 @@ export default {
       console.log(e)
     },
     fnMove (e) {
-      // console.log(e.touches[0].clientX, e.touches[0].clientY)
-      this.moveObj.left = `${e.touches[0].clientX - (this.dragInfo.width / 2)}px`
-      this.moveObj.top = `${e.touches[0].clientY - (this.dragInfo.height + this.dragInfo.height / 2)}px`
+      // 边界检测
+      if ((Number(this.moveObj.left.split('px')[0]) + this.dragInfo.width) > window.screen.availWidth) { // 获取手机可视区域
+        this.moveObj.left = (window.screen.availWidth - this.$refs.dragDom.clientWidth) + 'px'
+      } else {
+        this.moveObj.left = `${e.touches[0].clientX - (this.dragInfo.width / 2)}px`
+      }
+      if (Number(this.moveObj.top.split('px')[0]) > window.screen.availHidth) { // 获取手机可视区域
+        this.moveObj.top = (window.screen.availHidth - this.$refs.dragDom.clientHeight) + 'px'
+      } else {
+        this.moveObj.top = `${e.touches[0].clientY - (this.dragInfo.height + this.dragInfo.height / 2)}px`
+      }
+      if (Number(this.moveObj.left.split('px')[0]) < 0) {
+        this.moveObj.left = '0px'
+      }
+      if (Number(this.moveObj.top.split('px')[0]) < 0) { // 获取手机可视区域
+        this.moveObj.top = '0px'
+      }
     }
   },
   computed: {

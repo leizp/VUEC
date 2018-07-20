@@ -1,7 +1,9 @@
 <template>
+<div class="tree-wrap">
   <div class="tree" :style="{minWidth: width}" ref="tree">
     <treenode  @on-click="tapTreeItem"></treenode>
   </div>
+</div>
 </template>
 
 <script>
@@ -40,11 +42,22 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss">
 @import '../../style/config.base.scss';
+.tree-wrap {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+  overflow:scroll;
+  position: relative;
   .tree {
+    position: absolute;
+    left: 0;
+    top: 0;
     padding: 40px;
     height: 100%;
     overflow: scroll;
     box-sizing: border-box;
     zoom: 1;
   }
+}
 </style>

@@ -7,6 +7,8 @@ import 'lib-flexible/flexible.js' // 引入flexible.js
 import VueBus from 'vue-bus' // 监听事件传递，主要用于递归组件
 import axios from 'axios'
 import store from './store/index'
+import VueWechatTitle from 'vue-wechat-title'
+
 import {
   SYNC_SET_META_TITLE,
   SYNC_HIDE_TAB_PAGE
@@ -18,6 +20,8 @@ FastClick.attach(document.body) // 解决点击延迟问题
 
 require('es6-promise').polyfill()
 Vue.prototype.$axios = axios
+
+Vue.use(VueWechatTitle)
 
 router.afterEach(function (to) {
   store.commit({

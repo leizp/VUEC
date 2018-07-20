@@ -2,7 +2,7 @@
   <div id="app" :class="{'noPadBottom': !isTabPage, 'hasPadBotom': isTabPage}">
     <c-header :headerTitle="documentTitle"></c-header>
     <keep-alive>
-      <router-view></router-view>
+      <router-view v-wechat-title="$route.meta.title"></router-view>
     </keep-alive>
     <tarbar @on-change ="tabChange" :tabbarConfig="tabbarConfig" v-if="isTabPage">
     </tarbar>

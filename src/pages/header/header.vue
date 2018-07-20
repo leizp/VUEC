@@ -37,7 +37,7 @@ export default {
     height: 100%;
     background: $demo-background-color;
     box-sizing: border-box;
-    h3{
+    h3 {
       width: 100%;
       height: px2rem(60px);
       line-height: px2rem(60px);

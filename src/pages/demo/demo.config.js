@@ -28,4 +28,9 @@ export default [{
   src: `../../static/images/develop.png`,
   link: `/other`,
   index: 6
+}, {
+  title: '开发中',
+  src: `../../static/images/develop.png`,
+  link: `/other`,
+  index: 7
 }]

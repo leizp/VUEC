@@ -1,24 +1,16 @@
 <template>
-  <div class="demo">
-    <gird >
-        <girditem v-for="item in list" :key="item.index" :max="4" :gridItemData="item"></girditem>
-    </gird>
+  <div class="vuec-mask-demo">
+    
   </div>
 </template>
 
 <script>
-import config from './demo.config'
-import gird from '../../components/grid/grid'
-import girditem from '../../components/grid/grid-item'
 export default {
-  name: 'Home',
+  name: 'Header',
   components: {
-    gird,
-    girditem
   },
   data () {
     return {
-      list: config
     }
   },
   created () {
@@ -26,9 +18,8 @@ export default {
   beforeDestroy () {
   },
   methods: {
-    tapGirdItem (e) {
-      console.log(e)
-    }
+  },
+  computed: {
   }
 }
 </script>
@@ -36,7 +27,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss">
   @import '../../style/config.base.scss';
-  .demo {
+  .vuec-header-demo {
     width: 100%;
     height: 100%;
     background: $demo-background-color;
