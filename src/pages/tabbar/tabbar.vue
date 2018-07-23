@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import Tarbar from '../../components/tabbar/tabbar'
+import { Tarbar } from '../../components'
 import testData from './tabbar.test.data.js'
 export default {
   name: 'tabbar',

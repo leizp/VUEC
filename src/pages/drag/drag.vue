@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import Drag from '../../components/drag/drag'
+import { Drag } from '../../components'
 export default {
   name: 'DragPage',
   components: {

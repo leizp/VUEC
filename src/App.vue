@@ -10,8 +10,7 @@
 </template>
 
 <script>
-import Tarbar from './components/tabbar/tabbar'
-import CHeader from './components/header/header'
+import {Tarbar, CHeader} from './components'
 import { mapState } from 'vuex'
 export default {
   name: 'App',

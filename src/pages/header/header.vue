@@ -8,7 +8,9 @@
 </template>
 
 <script>
-import CHeader from '../../components/header/header'
+// import CHeader from '../../components/header/header'
+import { CHeader } from '../../components'
+
 export default {
   name: 'Header',
   components: {

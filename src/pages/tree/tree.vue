@@ -1,18 +1,18 @@
 <template>
 <div class="tree-wrap">
   <div class="tree" :style="{minWidth: width}" ref="tree">
-    <treenode  @on-click="tapTreeItem"></treenode>
+    <TreeNode  @on-click="tapTreeItem"></TreeNode>
   </div>
 </div>
 </template>
 
 <script>
-import treenode from '../../components/tree/tree'
+import { TreeNode } from '../../components'
 import { mapState } from 'vuex'
 export default {
   name: 'Tree',
   components: {
-    treenode: treenode
+    TreeNode
   },
   data () {
     return {
@@ -47,7 +47,7 @@ export default {
   height: 100%;
   box-sizing: border-box;
   overflow: hidden;
-  overflow:scroll;
+  overflow: scroll;
   position: relative;
   .tree {
     position: absolute;

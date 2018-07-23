@@ -1,39 +1,38 @@
 <template>
   <div class="GirdDemo">
     <h4 class="cell">最大数五个max:5</h4>
-    <gird class="gird">
-        <girditem v-for="item in list" :key="item.index" :max="5" :gridItemData="item"></girditem>
-    </gird>
+    <Gird class="gird">
+        <GirdItem v-for="item in list" :key="item.index" :max="5" :gridItemData="item"></GirdItem>
+    </Gird>
     <h4 class="cell">最大数五个max:5,且自定义里面内容</h4>
-    <gird class="gird">
-        <girditem v-for="item in 5" :key="item.index" :max="3" >
+    <Gird class="gird">
+        <GirdItem v-for="item in 5" :key="item.index" :max="3" >
           <div>
             <img src="../../assets/logo.png">
             <span>{{item}}</span>
           </div>
-        </girditem>
-    </gird>
+        </GirdItem>
+    </Gird>
    <h4 class="cell">获取商品列表</h4>
-    <gird class="gird">
-        <girditem v-for="item in shopList" :key="item.index" :max="2" >
+    <Gird class="gird">
+        <GirdItem v-for="item in shopList" :key="item.index" :max="2" >
           <div>
             <img :src="item.imageurl" class="shopImg">
             <span>{{item.wname}}</span>
           </div>
-        </girditem>
-    </gird>
+        </GirdItem>
+    </Gird>
   </div>
 </template>
 
 <script>
-import gird from '../../components/grid/grid'
-import girditem from '../../components/grid/grid-item'
+import {Gird, GirdItem} from '../../components'
 import testData from './gird.test.data'
 export default {
   name: 'GirdDemo',
   components: {
-    gird,
-    girditem
+    Gird,
+    GirdItem
   },
   data () {
     return {
