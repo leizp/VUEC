@@ -1,7 +1,7 @@
 <template>
   <a class="vuec-grid-item" :style="{width: `${100/max}%`}" @click.stop="fnClick(gridItemData.link)">
-    <img :src="gridItemData.src" alt="Image" srcset="" v-show="gridItemData.src">
-    <span v-show="gridItemData.title">{{gridItemData.title}}</span>
+    <img :src="gridItemData.src" alt="Image" srcset="" v-if="gridItemData.src">
+    <span v-if="gridItemData.title" >{{gridItemData.title}}</span>
     <slot></slot>
   </a>
 </template>
@@ -63,6 +63,7 @@ export default {
   font-size: $font-size;
   color: $font-color;
   position: relative;
+  overflow: hidden;
   &:before {
     @include border-right-point5-line($border-color);
   }

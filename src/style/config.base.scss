@@ -43,9 +43,9 @@ $border-1px-left: linear-gradient(270deg, transparent 50%, $border-color 50%); /
 // 伪元素下边框0.5px实现方法
 @mixin border-bottom-point5-line ($border-color: #d9d9d9){
   @include before-after-common;
-  @include locationEle(none, 0, 0, 0);
-  height: 1px;
-  border-top: 1px solid $border-color;
+  @include locationEle(none, -1px, 0, 0);
+  height: 2px;
+  border-bottom: 1px solid $border-color;
   color: $border-color;
   -webkit-transform: scaleY(0.5);
   transform: scaleY(0.5);
