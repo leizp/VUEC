@@ -24,13 +24,18 @@ export default [{
   link: `/drag`,
   index: 5
 }, {
-  title: '开发中',
-  src: `../../static/images/develop.png`,
-  link: `/other`,
+  title: 'ActionSheet',
+  src: `../../static/images/ActionSheet/ActionSheet.png`,
+  link: `/ActionSheet`,
   index: 6
+}, {
+  title: 'Button',
+  src: `../../static/images/button/button.png`,
+  link: `/Button`,
+  index: 7
 }, {
   title: '开发中',
   src: `../../static/images/develop.png`,
   link: `/other`,
-  index: 7
+  index: 8
 }]

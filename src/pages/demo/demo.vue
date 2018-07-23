@@ -11,7 +11,7 @@ import config from './demo.config'
 import gird from '../../components/grid/grid'
 import girditem from '../../components/grid/grid-item'
 export default {
-  name: 'Home',
+  name: 'Demo',
   components: {
     gird,
     girditem
@@ -39,6 +39,7 @@ export default {
   .demo {
     width: 100%;
     height: 100%;
+    position: relative;
     background: $demo-background-color;
     box-sizing: border-box;
   }

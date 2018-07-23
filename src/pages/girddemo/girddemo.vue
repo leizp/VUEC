@@ -8,7 +8,7 @@
     <Gird class="gird">
         <GirdItem v-for="item in 5" :key="item.index" :max="3" >
           <div>
-            <img src="../../assets/logo.png">
+            <img src="../../assets/shantou.png">
             <span>{{item}}</span>
           </div>
         </GirdItem>

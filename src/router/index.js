@@ -4,6 +4,7 @@ import Router from 'vue-router'
 Vue.use(Router)
 
 export default new Router({
+  mode: 'history', // HTML5 History 模式，去掉#
   routes: [
     {
       path: '/',
@@ -61,6 +62,20 @@ export default new Router({
         title: '拖拽'
       },
       component: resolve => require(['@/pages/drag/drag.vue'], resolve)
+    }, {
+      path: '/ActionSheet',
+      name: 'ActionSheet',
+      meta: {
+        title: 'ActionSheet'
+      },
+      component: resolve => require(['@/pages/actionSheet/actionSheet.vue'], resolve)
+    }, {
+      path: '/ButtonDemo',
+      name: 'ButtonDemo',
+      meta: {
+        title: 'Button'
+      },
+      component: resolve => require(['@/pages/button/button.vue'], resolve)
     }, {
       path: '/other',
       name: 'Other',

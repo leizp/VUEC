@@ -4,6 +4,7 @@ import Gird from './grid/grid'
 import GirdItem from './grid/grid-item'
 import TreeNode from './tree/tree'
 import Drag from './drag/drag'
+import ActionSheet from './actionSheet/actionSheet'
 
 export {
   CHeader,
@@ -11,5 +12,6 @@ export {
   Gird,
   GirdItem,
   TreeNode,
-  Drag
+  Drag,
+  ActionSheet
 }

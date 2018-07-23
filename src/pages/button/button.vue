@@ -1,17 +1,14 @@
 <template>
-  <div class="vuec-mask-demo">
-    
+  <div class="button-demo">
   </div>
 </template>
 
 <script>
 export default {
-  name: 'Header',
+  name: 'ButtonDemo',
   components: {
   },
   data () {
-    return {
-    }
   },
   created () {
   },
@@ -25,12 +22,11 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style lang="scss">
-  @import '../../style/config.base.scss';
-  .vuec-header-demo {
+<style lang="scss" scoped>
+  @import '../../style/config.base';
+  .button-demo {
     width: 100%;
     height: 100%;
-    background: $demo-background-color;
     box-sizing: border-box;
   }
 </style>
