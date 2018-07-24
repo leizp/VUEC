@@ -1,5 +1,6 @@
 <template>
   <div class="button-demo">
+    <button>测试button组件</button>
   </div>
 </template>
 
