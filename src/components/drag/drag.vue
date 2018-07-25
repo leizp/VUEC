@@ -1,8 +1,19 @@
+ <!--公用组件：CButton 组件
+    /**
+     * 组件名称：拖拽组件滑动
+     * @module ./components/drag/drag.vue
+     * @desc  基于vue-touch的拖拽组件
+     * @author LieZuoPing
+     * @date  2018年7月25日10点
+     * @param {Object} [title] - 参数说明
+     * @param {String} [columns] - 参数说明
+     * @example 调用示例
+     *  <c-button :title="title" :columns="columns" :tableData="tableData"></c-button>
+     */
+-->
 <template>
-  <div class="Drag">
-    <div class="drag-list">
-      <div class="dragBox" :style="moveObj" @touchstart="fnStart" @touchmove="fnMove" ref="dragDom"></div>
-    </div>
+  <div class="vuec_drag_container">
+    <v-touch v-on:panmove="fnMove" class="vuec_drag_list_box" :style="moveObj" ref="dragDom">Swipe me!</v-touch>
   </div>
 </template>
 
@@ -26,34 +37,27 @@ export default {
   created () {
   },
   mounted () {
-    console.log(this.$refs.dragDom.clientHeight, this.$refs.dragDom.clientWidth)
-    this.dragInfo.width = this.$refs.dragDom.clientWidth
-    this.dragInfo.height = this.$refs.dragDom.clientHeight
+    // 计算拖拽元素初始值得宽和高
+    this.dragInfo.width = this.$refs.dragDom.hammer.element.clientWidth
+    this.dragInfo.height = this.$refs.dragDom.hammer.element.clientHeight
   },
   beforeDestroy () {
   },
   methods: {
+    /**
+     * 拖拽开始位置记录
+     */
     fnStart (e) {
-      console.log(e)
+      // es6 结构赋值
+      let { scrollHeight, scrollLeft, scrollTop, scrollWidth } = e.touches[0].target
+      this.$emit('touch-start', { scrollHeight, scrollLeft, scrollTop, scrollWidth })
     },
+    /**
+     * 边界检测函数
+     */
     fnMove (e) {
-      // 边界检测
-      if ((Number(this.moveObj.left.split('px')[0]) + this.dragInfo.width) > window.screen.availWidth) { // 获取手机可视区域
-        this.moveObj.left = (window.screen.availWidth - this.$refs.dragDom.clientWidth) + 'px'
-      } else {
-        this.moveObj.left = `${e.touches[0].clientX - (this.dragInfo.width / 2)}px`
-      }
-      if (Number(this.moveObj.top.split('px')[0]) > window.screen.availHidth) { // 获取手机可视区域
-        this.moveObj.top = (window.screen.availHidth - this.$refs.dragDom.clientHeight) + 'px'
-      } else {
-        this.moveObj.top = `${e.touches[0].clientY - (this.dragInfo.height + this.dragInfo.height / 2)}px`
-      }
-      if (Number(this.moveObj.left.split('px')[0]) < 0) {
-        this.moveObj.left = '0px'
-      }
-      if (Number(this.moveObj.top.split('px')[0]) < 0) { // 获取手机可视区域
-        this.moveObj.top = '0px'
-      }
+      this.moveObj.left = `${e.center.x - this.dragInfo.width / 2}px`
+      this.moveObj.top = `${e.center.y - this.dragInfo.height * 1.5}px`
     }
   },
   computed: {
@@ -65,25 +69,21 @@ export default {
 <style lang="scss">
   @import '../../style/config.base.scss';
   @import './drag.style';
-  .Drag {
+  .vuec_drag_container {
     width: 100%;
     height: px2rem(750px);
-    background: $demo-background-color;
     box-sizing: border-box;
-    .drag-list {
-      width: 100%;
-      height: px2rem(750px);
-      background: $drag-warp-background-color;
+    position: relative;
+    .vuec_drag_list_box {
+      width: px2rem(100px);
+      height: px2rem(100px);
       box-sizing: border-box;
-      position: relative;
-      .dragBox {
-        width: px2rem(100px);
-        height: px2rem(100px);
-        box-sizing: border-box;
-        background: $drag-box-background-color;
-        // border-radius: 50%;
-        position: absolute;
-      }
+      text-align: center;
+      color: #fff;
+      background: $drag_box_background_color;
+      position: absolute;
+      line-height: px2rem(50px);
+      border-radius: 50%;
     }
   }
 </style>

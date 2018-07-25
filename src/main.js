@@ -8,6 +8,7 @@ import VueBus from 'vue-bus' // 监听事件传递，主要用于递归组件
 import axios from 'axios'
 import store from './store/index'
 import VueWechatTitle from 'vue-wechat-title'
+import VueTouch from 'vue-touch'
 
 import {
   SYNC_SET_META_TITLE,
@@ -22,6 +23,7 @@ require('es6-promise').polyfill()
 Vue.prototype.$axios = axios
 
 Vue.use(VueWechatTitle)
+Vue.use(VueTouch, {name: 'v-touch'})
 
 router.afterEach(function (to) {
   store.commit({

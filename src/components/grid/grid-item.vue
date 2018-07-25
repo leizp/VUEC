@@ -1,5 +1,5 @@
 <template>
-  <a class="vuec-grid-item" :style="{width: `${100/max}%`}" @click.stop="fnClick(gridItemData.link)">
+  <a class="vuec_grid_item" :style="{width: `${100/max}%`}" @click.stop="fnClick(gridItemData.link)">
     <img :src="gridItemData.src" alt="Image" srcset="" v-if="gridItemData.src">
     <span v-if="gridItemData.title" >{{gridItemData.title}}</span>
     <slot></slot>
@@ -52,7 +52,7 @@ export default {
 <style lang="scss">
 @import '../../style/config.base';
 @import './grid.style';
-.vuec-grid-item {
+.vuec_grid_item {
   padding: $grid-item-padding;
   box-sizing: border-box;
   background:$grid-item-background-color;

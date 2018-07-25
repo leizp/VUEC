@@ -4,7 +4,7 @@ import Router from 'vue-router'
 Vue.use(Router)
 
 export default new Router({
-  mode: 'history', // HTML5 History 模式，去掉#
+  // mode: 'history', // HTML5 History 模式，去掉#
   routes: [
     {
       path: '/',

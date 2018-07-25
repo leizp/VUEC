@@ -1,5 +1,5 @@
 <template>
-    <div class="vuec-grid" >
+    <div class="vuec_grid" >
       <slot></slot>
     </div>
 </template>
@@ -25,7 +25,7 @@ export default {
 <style lang="scss">
 @import '../../style/config.base';
 @import './grid.style';
-.vuec-grid {
+.vuec_grid {
   display: flex;
   width: 100%;
   position: relative;

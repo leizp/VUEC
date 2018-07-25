@@ -1,5 +1,6 @@
+
 <template>
-  <div class="dragPage">
+  <div class="vuec_demo_drag_page">
     <drag></drag>
   </div>
 </template>
@@ -29,7 +30,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss">
 @import '../../style/config.base.scss';
-  .dragPage {
+  .vuec_demo_drag_page {
     width: 100%;
     height: 100%;
     overflow: hidden;
