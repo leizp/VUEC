@@ -19,23 +19,28 @@ export default [{
   link: `/header`,
   index: 4
 }, {
-  title: 'Drag',
-  src: `../../static/images/drag/drag.png`,
-  link: `/drag`,
-  index: 5
-}, {
   title: 'ActionSheet',
   src: `../../static/images/ActionSheet/ActionSheet.png`,
   link: `/ActionSheet`,
-  index: 6
+  index: 5
 }, {
   title: 'Button',
   src: `../../static/images/button/button.png`,
   link: `/Button`,
+  index: 6
+}, {
+  title: 'Drag',
+  src: `../../static/images/drag/drag.png`,
+  link: `/drag`,
   index: 7
+}, {
+  title: 'DragToSort',
+  src: `../../static/images/dragToSort/drag_to_sort.png`,
+  link: `/DragToSort`,
+  index: 8
 }, {
   title: '开发中',
   src: `../../static/images/develop.png`,
   link: `/other`,
-  index: 8
+  index: 9
 }]

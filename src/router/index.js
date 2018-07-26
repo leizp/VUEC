@@ -63,6 +63,13 @@ export default new Router({
       },
       component: resolve => require(['@/pages/drag/drag.vue'], resolve)
     }, {
+      path: '/DragToSort',
+      name: 'DragToSort',
+      meta: {
+        title: '拖拽排序'
+      },
+      component: resolve => require(['@/pages/drag/dragToSort.vue'], resolve)
+    }, {
       path: '/ActionSheet',
       name: 'ActionSheet',
       meta: {

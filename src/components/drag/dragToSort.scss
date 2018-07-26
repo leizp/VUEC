@@ -1,0 +1,24 @@
+/**
+ * 组件名称：拖住组件scss样式表
+ * @module ./components/drag/drag.sort.scss
+ * @desc  拖住组件scss全局变量样式表
+ * @author LieZuoPing
+ * @date  2018年7月25日15点
+ */
+
+$vuec_dtsc_width: 100%;
+$vuec_dtsc_height: 100%;
+@import '../../style/config.base.scss';
+
+// 边框发光动画
+@keyframes borderLight {
+  0% {
+    box-shadow: 0 0 9px #333;
+  }
+  50% {
+    box-shadow: 0 0 18px colorRandom();
+  }
+  100% {
+    box-shadow: 0 0 9px #333
+  }
+}

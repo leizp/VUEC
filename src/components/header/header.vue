@@ -53,7 +53,7 @@ export default {
   .left {
     height: 100%;
     width: 20%;
-    font-size: 14px;
+    font-size: px2rem(14px);
     box-sizing: border-box;
     float: left;
     padding: px2rem(20px) px2rem(10px);
@@ -64,7 +64,7 @@ export default {
     }
     span {
       float: left;
-      font-size: 16px;
+      font-size: px2rem(30px);
       line-height: ($header-height - px2rem(40px));
     }
   }

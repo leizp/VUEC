@@ -13,7 +13,7 @@
 -->
 <template>
   <div class="vuec_drag_container">
-    <v-touch v-on:panmove="fnMove" class="vuec_drag_list_box" :style="moveObj" ref="dragDom">Swipe me!</v-touch>
+    <v-touch v-on:panmove="fnMove" class="vuec_drag_list_box" :style="moveObj" ref="dragDom">拖动</v-touch>
   </div>
 </template>
 

@@ -9,6 +9,12 @@ $border-1px-left: linear-gradient(270deg, transparent 50%, $border-color 50%); /
   @return $px / $browser-default-font-size * 1rem;
 }
 
+// 创建一个颜色随机函数
+@function colorRandom () {
+  @return rgba(random() * 225, random() * 225, random() *225, 1);
+}
+
+
 // sass,伪元素边框定义
 @mixin before-after-common {
   content: ' ';
