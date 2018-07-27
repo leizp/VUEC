@@ -33,7 +33,7 @@
 > code
 
 ```bash
-    <gird >
-      <girditem v-for="item in list" :key="item.index" :max="4" :gridItemData="item"></girditem>
-    </gird>
+    <Gird >
+      <Girditem v-for="item in list" :key="item.index" :max="4" :gridItemData="item"></Girditem>
+    </Gird>
 ```

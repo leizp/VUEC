@@ -18,7 +18,7 @@
         :id="item.id"
         :style="modStyle"
       >
-        {{item.index}}
+        {{item.id}}
         <v-touch class="vdwu_touch"
           :style="item.styleObj"
           @press="fnPress(item.index)"
@@ -26,7 +26,7 @@
           @panmove="fnMove"
           @panend="fnMoveEnd"
           >
-            {{item.index}}
+            {{item.id}}
           </v-touch>
       </div>
     </div>
@@ -47,6 +47,7 @@ export default {
       modStyle: testData.styleObj, // 每个拖拽元素的公共样式
       optionArr: [], // 每个固定元素的{offsetLeft， offsetTop} 数据集合
       moveOptionArr: [],
+      resetData: '',
       moveEndIndex: '',
       dragId: 0, // 选中的拖拽元素id
       lock: false, // 是否开始拖拽，默认锁定，长按开始，双击锁定
@@ -60,7 +61,6 @@ export default {
   },
   mounted () {
     this.calculateOptionArr()
-    this.calculateRowAndCol()
     this.moveOptionArr = [...this.optionArr]
   },
   beforeDestroy () {
@@ -83,17 +83,90 @@ export default {
      * @param Array [{}]
      */
     calculateRowAndCol (arr) {
-      let col = [] // 列
-      let row = [] // 行
+      let colArr = [] // 列
+      let rowArr = [] // 行
       for (let item of arr) {
-        col.push(item.offsetLeft)
-+       row.push(item.offsetLeft)
+        colArr.push(item.offsetLeft)
+        rowArr.push(item.offsetTop)
       }
+      // 去重排序，计算函数和列数， Set数据唯一性， Array.form 可以把对象转换为数组
+      colArr = Array.from(new Set(colArr))
+      rowArr = Array.from(new Set(rowArr))
+      return {rowArr, colArr}
+    },
+    /**
+     * calculate
+     */
+    calculateRelIndex (x, y, arr) {
+      let { colArr, rowArr } = this.calculateRowAndCol(arr)
+      let col = colArr.length // 列数
+      let atRow = 0
+      let atCol = 0
+      // 判断在第几行
+      for (let i = 0; i < rowArr.length - 1; i++) {
+        if (y > rowArr[i] && y < rowArr[i + 1]) {
+          atRow = i
+        }
+        if (y > rowArr[rowArr.length - 1]) {
+          atRow = rowArr.length - 1
+        }
+        if (y < rowArr[0]) {
+          atRow = 0
+        }
+      }
+      // 判断在第几列
+      for (let i = 0; i < colArr.length - 1; i++) {
+        if (x > colArr[i] && x < colArr[i + 1]) {
+          atCol = i
+        }
+        if (x > colArr[colArr.length - 1]) {
+          atCol = colArr.length - 1
+        }
+        if (x < colArr[0]) {
+          atCol = 0
+        }
+      }
+      let replaceIndex = atRow * col + atCol
+      console.log('行：', atRow, '列：', atCol)
+      return replaceIndex
+    },
+    /**
+     * 目标数组重新排序
+     * @param Number: index
+     */
+    renewSort (index) {
+      let dragArr = this.moveArr[this.dragId]
+      let targetArr = this.moveArr[index]
+      this.moveArr[this.dragId].styleObj = {
+        'animation-name': '',
+        'opacity': 0.9,
+        'z-index': 3,
+        'left': targetArr.styleObj.left,
+        'top': targetArr.styleObj.top
+      }
+      this.moveArr[index].styleObj = {
+        'animation-name': '',
+        'opacity': 0.9,
+        'z-index': 3,
+        'left': `${this.resetData[this.dragId].offsetLeft}px`,
+        'top': `${this.resetData[this.dragId].offsetTop}px`
+      }
+      this.moveArr[index] = dragArr
+      this.moveArr[this.dragId] = targetArr
+      this.lock = false
+      this.modStyle.animationName = ''
+      this.dragId = ''
+      this.move = {
+        x: 0,
+        y: 0
+      }
+      this.moveOptionArr = [...this.resetData]
     },
     /**
      * 长安闪亮,
      */
     fnPress (index) {
+      console.log(0)
       this.lock = true
       this.modStyle.animationName = 'borderLight'
     },
@@ -138,10 +211,11 @@ export default {
       if (event.center.y >= (sY + event.target.clientHeight / 2)) { // 下边界
         y = sY - event.target.clientHeight
       }
+      console.log(`x:${x}, y: ${y},moveX: ${this.move.x},moveY: ${this.move.y},event.deltaX: ${event.deltaX}, event.deltaY:${event.deltaY}`)
       this.moveArr[this.dragId].styleObj = {
         'animation-name': 'borderLight',
         'opacity': 0.6,
-        'z-index': 8888,
+        'z-index': 100,
         'left': `${x}px`,
         'top': `${y}px`
       }
@@ -161,18 +235,16 @@ export default {
         let { offsetLeft, offsetTop } = item
         arr.push({ offsetLeft, offsetTop })
       }
-      console.log(arr)
-      let x = e.center.x - e.target.offsetWidth / 2
-      let y = e.center.y - e.target.offsetHeight / 2
+      this.resetData = arr
       let w = e.target.offsetWidth
       let h = e.target.offsetHeight
-      let len = arr.length
-      console.log(x, y)
-      // 判断需要如何排序
-      for (let i = 0; i < len; i++) {
-        // 首先判断是移动到了第几排
-        // if (y < )
+      let x = e.target.offsetLeft + w / 2// 拖拽的元素移动x点
+      let y = e.target.offsetTop + h / 2 // 拖拽的元素移动y点
+      let targetIndex = this.calculateRelIndex(x, y, arr)
+      if (targetIndex > this.moveArr.length) {
+        targetIndex = this.moveArr.length
       }
+      this.renewSort(targetIndex)
     },
     /**
      * 取消排序
